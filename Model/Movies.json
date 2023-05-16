@@ -1,0 +1,44 @@
+[
+    {
+       "id": 0,
+       "name": "Guardiões da Galáxia Volume 3",
+       "year": 2023,
+       "rate": 0,
+       "urlImage": "https://m.media-amazon.com/images/M/MV5BMDgxOTdjMzYtZGQxMS00ZTAzLWI4Y2UtMTQzN2VlYjYyZWRiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+       "id": 1,
+       "name": "Super Mario Bros - O Filme",
+       "year": 2023,
+       "rate": 0,
+       "urlImage": "https://cinemococa.com.br/storage/2023/02/foevbcsayamvqpf-1675462826997_2ck5-647x1024.jpg"
+    },
+    {
+       "id": 2,
+       "name": "John Wick 4: Baba Yaga",
+       "year": 2023,
+       "rate": 0,
+       "urlImage": "https://pbs.twimg.com/media/Fo2viRMXsAEXJHD?format=jpg&name=4096x4096"
+    },
+    {
+       "id": 3,
+       "name": "A Pequena Sereia",
+       "year": 2023,
+       "rate": 0,
+       "urlImage": "https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2023/03/Disney_PosterOficial-APequenaSereia-1.jpg?w=819"
+    },
+    {
+       "id": 4,
+       "name": "A Morte do Demônio - A Ascensão",
+       "year": 2023,
+       "rate": 0,
+       "urlImage": "https://cinepop.com.br/wp-content/uploads/2023/01/evil-dead-rise-poster-2022.webp"
+    },
+    {
+       "id": 5,
+       "name": "Dungeons & Dragons: Honra Entre Rebeldes",
+       "year": 2023,
+       "rate": 0,
+       "urlImage": "https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2022/12/unnamed-1.jpg"
+    }
+ ]
