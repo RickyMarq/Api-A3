@@ -1,12 +1,21 @@
 console.log("Hello World");
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
+
 
 const app = express();
 const port = 3000;
-
+module.exports = app;
 app.use(express.json());
+
 app.listen(port, () => console.log(`Server rodando on http://localhost:${port}`));
+
+app.use(cors({
+  origin: '*'
+}
+));
 
 const Filmes = require('./Model/Movies.json')
 const FilmesScheme = require('./Model/Movies')
@@ -24,6 +33,7 @@ mongoose.connect(`mongodb+srv://${DB_User}:${DB_PASSWORD}@databasea3.nhk7kwf.mon
     
 app.get("/Filmes", async (req, res) => {
  //     res.json({Filmes: Filmes})
+
       const data = await FilmesScheme.find({})
       res.send({filmes: data})
     })
@@ -55,14 +65,8 @@ app.get("/movies", async (req, res) => {
   });
   
 
-  app.patch("/LikeMovie/:id", async (req, res) => {
+  app.put("/LikeMovie/:id", async (req, res) => {
       const id = req.params.id
-
-/*       const {rate} = req.body
-
-      const movie = {
-        rate
-      } */
 
       try {
         const updatedPerson = await FilmesScheme.updateOne(
@@ -78,7 +82,7 @@ app.get("/movies", async (req, res) => {
   });
   
 
-  app.patch("/DeslikeMovie/:id", async (req, res) => {
+  app.put("/DeslikeMovie/:id", async (req, res) => {
     const id = req.params.id
 
     try {
@@ -94,6 +98,37 @@ app.get("/movies", async (req, res) => {
 
 });
 
+// TODO: ADICIONAR FILME 
+
+app.post("/AdicionarFilme", async (req, res) => {
+    const {id, name, year, rate, urlImage} = req.body
+
+    if (!name) {
+      res.send(422).json({error: 'O nome do filme é obrigatório'})
+    }
+
+    const movie = {
+      id,
+      name,
+      year,
+      rate,
+      urlImage
+    }
+
+    try {
+
+      await FilmesScheme.create(movie);
+      res.status(200).json({message: 'O filme foi inserido em nosso banco de dados'})
+    } catch (error) {
+      res.statusCode(500).json({error: error}); 
+    }
+
+});
+
+// TODO: ATUALIZAR FILME 
+
+
+
   app.get("/AddTheJSONToTheDatabase", (req, res) => {
     try {
    // Adicionar o JSON dentro da Database.
@@ -107,7 +142,6 @@ app.get("/movies", async (req, res) => {
 
   app.get("/DeleteAllItemsInsideTheDatabase", (req, res) => {
     // Apagar a Database Inteira.
-
   FilmesScheme.deleteMany({})
     .then(() => {
      console.log('All items deleted successfully.');
